@@ -1,0 +1,40 @@
+<nav class="navbar p-0">
+  <div class="container-fluid bg-black d-flex justify-content-between">
+    <a class="navbar-brand text-center"
+      ><img src="../../../assets/Netflix-logo-red-black-png.png" alt=""
+    /></a>
+
+    <ng-container [ngSwitch]="currentRoute" class="d-flex flex-row gap-2">
+      <ng-container *ngSwitchCase="'/login-page'"
+        ><a
+          class="nav-link"
+          routerLink="/subscribe-page"
+          routerLinkActive="active"
+          >Registrati</a
+        >
+      </ng-container>
+      <ng-container *ngSwitchCase="'/'">
+        <div class="d-flex flex-row gap-2">
+          <a
+            class="btn btn-outline-light"
+            routerLink="/profile-page"
+            routerLinkActive="active"
+            >Profilo</a
+          >
+          <a class="btn btn-outline-danger" (click)="logOut()">Logout</a>
+        </div>
+      </ng-container>
+      <ng-container *ngSwitchCase="'/profile-page'">
+        <div class="d-flex flex-row gap-2">
+          <a
+            class="btn btn-outline-light"
+            routerLink="/"
+            routerLinkActive="active"
+            >Home</a
+          >
+          <a class="btn btn-outline-danger" (click)="logOut()">Logout</a>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</nav>

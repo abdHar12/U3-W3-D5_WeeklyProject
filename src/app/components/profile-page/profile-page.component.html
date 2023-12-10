@@ -1,0 +1,31 @@
+<div class="w-50 mx-auto border-bottom border-secondary set-width mt-2">
+  <h1 class="border-bottom border-secondary fw-normal pb-2">Profile</h1>
+  <div class="d-flex flex-row gap-4">
+    <div id="avatar_column">
+      <div class="position-relative">
+        <img class="w-100 mb-2" src="../../../assets/avatar.png" />
+        <span
+          class="position-absolute translate-middle bg-dark border border-light rounded-circle"
+        >
+          <i class="bi bi-pencil-fill"></i>
+        </span>
+      </div>
+    </div>
+    <div id="profile-settings-div" class="gap-3 d-flex align-items-center">
+      <div>
+        <div class="d-flex flex-row gap-2 align-items-center mb-2">
+          <h5 class="m-0">Nome:</h5>
+          <span>{{ user.user.name }}</span>
+        </div>
+        <div class="d-flex flex-row gap-2 align-items-center mb-2">
+          <h5 class="m-0">Cognome:</h5>
+          <span>{{ user.user.surname }}</span>
+        </div>
+        <div class="d-flex flex-row gap-2 align-items-center mb-2">
+          <h5 class="m-0">email:</h5>
+          <span>{{ user.user.email }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
