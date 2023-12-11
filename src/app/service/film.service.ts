@@ -36,8 +36,8 @@ export class FilmService {
       likes.forEach((like) => {
         if (id === like.movieId && user.user.id === like.userId) {
           console.log(like.userId, like.movieId);
-          this.deleteLikeInDB(like.id).subscribe(
-            () => 'like eliminato con successo'
+          this.deleteLikeInDB(like.id).subscribe(() =>
+            console.log('like eliminato con successo')
           );
         }
       });
@@ -49,18 +49,8 @@ export class FilmService {
       userId: user.user.id,
       movieId: film.id,
     };
-    let count = 0;
-    this.getLikes().subscribe((likes) => {
-      likes.forEach((like) => {
-        if (like.movieId === film.id && user.user.id === like.userId) {
-          count++;
-        }
-      });
-    });
-    if (count === 0) {
-      this.addLikeInDB(like).subscribe(() => {
-        'like aggiunto con successo';
-      });
-    }
+    this.addLikeInDB(like).subscribe(() =>
+      console.log('like aggiunto con successo')
+    );
   }
 }
