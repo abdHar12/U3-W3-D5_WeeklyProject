@@ -10,8 +10,8 @@
     {
       "email": "harou@gmail.com",
       "password": "$2a$10$Ybo32eQMTgwBqf3kyKCnaOi4Zo2HjrvZSuhRAnM9IyKBt22mpq0gu",
-      "nome": "Abderrahmane",
-      "cognome": "Harouane",
+      "name": "Abderrahmane",
+      "surname": "Harouane",
       "id": 6
     },
     {
@@ -54,18 +54,18 @@
     },
     {
       "userId": 6,
-      "movieId": 567189,
-      "id": 11
+      "movieId": 399566,
+      "id": 15
     },
     {
       "userId": 6,
-      "movieId": 578701,
-      "id": 12
+      "movieId": 460465,
+      "id": 16
     },
     {
-      "userId": 6,
-      "movieId": 573680,
-      "id": 13
+      "userId": 9,
+      "movieId": 632357,
+      "id": 17
     }
   ],
   "movies-popular": [

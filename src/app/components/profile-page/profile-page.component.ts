@@ -20,7 +20,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
   getAllLikes: any = setInterval(() => {
     this.filmSrv.getLikes().subscribe((likes) => {
       this.allLikes = likes;
-      console.log(this.allLikes);
       this.likedFilmIds = [];
 
       this.allLikes.forEach((like) => {
