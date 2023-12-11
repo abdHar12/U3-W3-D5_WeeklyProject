@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { AuthData } from 'src/app/module/authdata';
 import { Film } from 'src/app/module/film';
 import { FilmService } from 'src/app/service/film.service';
@@ -10,20 +10,22 @@ import { Favorite } from 'src/app/module/favorite';
   templateUrl: './main-page.component.html',
   styleUrls: ['./main-page.component.scss'],
 })
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnDestroy {
   allFilms!: Film[];
   urlCovers: string = 'https://image.tmdb.org/t/p/w500';
   user!: AuthData;
   likeBool!: boolean;
   allLikes!: Favorite[];
 
+  getAllLikes: any = setInterval(() => {
+    this.filmSrv.getLikes().subscribe((likes) => {
+      this.allLikes = likes;
+      console.log(this.allLikes);
+    });
+  }, 1000);
+
   constructor(private filmSrv: FilmService) {
-    setInterval(() => {
-      this.filmSrv.getLikes().subscribe((likes) => {
-        this.allLikes = likes;
-        this.filmSrv.setAllLikes(likes);
-      });
-    }, 1000);
+    this.getAllLikes;
   }
 
   ngOnInit(): void {
@@ -34,6 +36,10 @@ export class MainPageComponent implements OnInit {
     if (!user) {
       throw console.error('user non presente');
     } else this.user = JSON.parse(user);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.getAllLikes);
   }
 
   liked(film: Film) {

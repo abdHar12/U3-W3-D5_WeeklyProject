@@ -19,7 +19,32 @@
 .set-width {
   width: 95% !important;
 }
+.card {
+  height: 500px;
+  margin-bottom: 1rem;
 
+  img {
+    height: 70%;
+    object-fit: cover;
+  }
+  .card-body {
+    h5 {
+      font-size: 1.2rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    span {
+      display: flex;
+      justify-content: end;
+    }
+  }
+}
+@media screen and (max-width: 767px) {
+  .card {
+    height: 350px;
+  }
+}
 @media screen and (min-width: 768px) {
   .set-width {
     width: 75% !important;
