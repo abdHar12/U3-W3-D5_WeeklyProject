@@ -9,14 +9,8 @@ import { AuthData } from '../module/authdata';
   providedIn: 'root',
 })
 export class FilmService {
-  allLikes!: Favorite[];
   constructor(private http: HttpClient) {}
-  setAllLikes(likes: Favorite[]) {
-    this.allLikes = likes;
-  }
-  getallLikes() {
-    return this.allLikes;
-  }
+
   getFilms() {
     return this.http.get<Film[]>(`${environment.apiURL}/movies-popular`);
   }
@@ -35,7 +29,6 @@ export class FilmService {
     this.getLikes().subscribe((likes) => {
       likes.forEach((like) => {
         if (id === like.movieId && user.user.id === like.userId) {
-          console.log(like.userId, like.movieId);
           this.deleteLikeInDB(like.id).subscribe(() =>
             console.log('like eliminato con successo')
           );

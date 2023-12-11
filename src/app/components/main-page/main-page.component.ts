@@ -20,7 +20,6 @@ export class MainPageComponent implements OnInit, OnDestroy {
   getAllLikes: any = setInterval(() => {
     this.filmSrv.getLikes().subscribe((likes) => {
       this.allLikes = likes;
-      console.log(this.allLikes);
     });
   }, 1000);
 

@@ -47,8 +47,6 @@ export class ProfilePageComponent implements OnInit, OnDestroy {
       throw console.error('user non presente');
     } else this.user = JSON.parse(user);
 
-    console.log(this.user);
-
     this.filmSrv.getFilms().subscribe((films) => (this.allFilms = films));
   }
 
