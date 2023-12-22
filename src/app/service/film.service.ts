@@ -9,6 +9,7 @@ import { AuthData } from '../module/authdata';
   providedIn: 'root',
 })
 export class FilmService {
+  allLikes!: Favorite[];
   constructor(private http: HttpClient) {}
 
   getFilms() {
@@ -26,7 +27,7 @@ export class FilmService {
   }
 
   removeLike(id: number, user: AuthData) {
-    this.getLikes().subscribe((likes) => {
+    return this.getLikes().subscribe((likes) => {
       likes.forEach((like) => {
         if (id === like.movieId && user.user.id === like.userId) {
           this.deleteLikeInDB(like.id).subscribe(() =>
@@ -42,7 +43,7 @@ export class FilmService {
       userId: user.user.id,
       movieId: film.id,
     };
-    this.addLikeInDB(like).subscribe(() =>
+    return this.addLikeInDB(like).subscribe(() =>
       console.log('like aggiunto con successo')
     );
   }

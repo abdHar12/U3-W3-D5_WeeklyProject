@@ -57,7 +57,9 @@ export class AuthService {
       })
     );
   }
-
+  getAllUsers() {
+    return this.http.get<AuthData[]>(`${this.apiURL}/users`);
+  }
   logout() {
     this.authSubj.next(null);
     localStorage.removeItem('user');
